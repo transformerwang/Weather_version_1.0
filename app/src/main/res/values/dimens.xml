@@ -2,15 +2,21 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="card_view_padding">15dp</dimen>
+    <dimen name="card_view_padding">10dp</dimen>
     <dimen name="city_text_size">20dp</dimen>
     <dimen name="country_text_size">15dp</dimen>
     <dimen name="time_text_size">15dp</dimen>
     <dimen name="temp_text_size">30dp</dimen>
-    <dimen name="image_padding_current">20dp</dimen>
-    <dimen name="right_now_txt">35sp</dimen>
     <dimen name="weather_text_size">20sp</dimen>
-    <dimen name="weather_temp_textsize">70sp</dimen>
-    <dimen name="hour_textsize">20sp</dimen>
-    <dimen name="temp_textsize">25sp</dimen>
+    <dimen name="weather_temp_textsize">80sp</dimen>
+    <dimen name="hour_textsize">13sp</dimen>
+    <dimen name="temp_textsize">18sp</dimen>
+
+    <dimen name="image_padding_current_week">5dp</dimen>
+    <dimen name="right_now_txt_week">20sp</dimen>
+    <dimen name="weather_text_size_week">10sp</dimen>
+    <dimen name="weather_temp_textsize_week">20sp</dimen>
+    <dimen name="linear_margin_left">8dp</dimen>
+
+    <dimen name="tool_bar_text_size">30sp</dimen>
 </resources>

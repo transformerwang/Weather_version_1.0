@@ -5,6 +5,5 @@ package wyz.android.com.weather_version_10.constant;
  */
 public class Constant {
 
-    public final static String DEFAULT_WEATHER_URL = "http://api.openweathermap.org/data/2.5/";
-    public final static String DEFAULT_WEATHER_API_KEY = "&units=metric&APPID=5f15002c2be701b7ad568ae842dd74aa";
+    public final static String DEFAULT_WEATHER_URL = "https://api.forecast.io/forecast/ac67c6bacf98303e347fd276c73d3f41/";
 }

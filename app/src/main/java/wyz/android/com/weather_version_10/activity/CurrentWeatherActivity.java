@@ -35,9 +35,6 @@ public class CurrentWeatherActivity extends AppCompatActivity implements LoadWea
     private URL mUrl_1;
     private URL mUrl_2;
     private URL mUrl_3;
-    private URL mUrl_4;
-    private URL mUrl_5;
-    private URL mUrl_6;
     private URL mUrl_7;
 
 
@@ -71,7 +68,7 @@ public class CurrentWeatherActivity extends AppCompatActivity implements LoadWea
             @Override
             public void onRefresh() {
                 try {
-                    mUrl_7 = new URL(Constant.DEFAULT_WEATHER_URL + "weather?q=Handan" + Constant.DEFAULT_WEATHER_API_KEY);
+                    mUrl_7 = new URL(Constant.DEFAULT_WEATHER_URL+ "36.36,114.29" + "?units=si&exclude=minutely&lang=zh");
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
@@ -86,20 +83,14 @@ public class CurrentWeatherActivity extends AppCompatActivity implements LoadWea
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(new RecyclerViewMainAdapter(mList, this));
         try {
-            mUrl_1 = new URL(Constant.DEFAULT_WEATHER_URL+"weather?q=Beijing" + Constant.DEFAULT_WEATHER_API_KEY);
-            mUrl_2 = new URL(Constant.DEFAULT_WEATHER_URL+"weather?q=London" + Constant.DEFAULT_WEATHER_API_KEY);
-            mUrl_3 = new URL(Constant.DEFAULT_WEATHER_URL+"weather?q=Shanghai" + Constant.DEFAULT_WEATHER_API_KEY);
-            mUrl_4 = new URL(Constant.DEFAULT_WEATHER_URL+"weather?q=Arlington" + Constant.DEFAULT_WEATHER_API_KEY);
-            mUrl_5 = new URL(Constant.DEFAULT_WEATHER_URL+"weather?q=Chicago" + Constant.DEFAULT_WEATHER_API_KEY);
-            mUrl_6 = new URL(Constant.DEFAULT_WEATHER_URL+"weather?q=Tokyo" + Constant.DEFAULT_WEATHER_API_KEY);
+            mUrl_1 = new URL(Constant.DEFAULT_WEATHER_URL+ "39.90, 116.39" + "?units=si&exclude=minutely&lang=zh");
+            mUrl_2 = new URL(Constant.DEFAULT_WEATHER_URL+ "38.53,-77.02" + "?units=si&exclude=minutely&lang=zh");
+            mUrl_3 = new URL(Constant.DEFAULT_WEATHER_URL+ "34.04,-118.15" + "?units=si&exclude=minutely&lang=zh");
 
 
             mListUrl.add(mUrl_1);
             mListUrl.add(mUrl_2);
             mListUrl.add(mUrl_3);
-            mListUrl.add(mUrl_4);
-            mListUrl.add(mUrl_5);
-            mListUrl.add(mUrl_6);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();

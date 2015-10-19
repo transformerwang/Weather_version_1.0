@@ -13,7 +13,6 @@ import butterknife.ButterKnife;
 import wyz.android.com.weather_version_10.R;
 import wyz.android.com.weather_version_10.adapter.ViewPagerAdatper;
 import wyz.android.com.weather_version_10.domain.CurrentWeather;
-import wyz.android.com.weather_version_10.domain.FiveDayWeather;
 
 /**
  * Created by wangyuzhe on 10/10/15.
@@ -21,7 +20,6 @@ import wyz.android.com.weather_version_10.domain.FiveDayWeather;
 public class CurrentWeatherDetailActivity extends FragmentActivity {
 
     private List<CurrentWeather> mListCurrent = new ArrayList<>();
-    private List<FiveDayWeather> mListFiveDay = new ArrayList<>();
 
     @Bind(R.id.pager) ViewPager viewPager;
 
@@ -34,8 +32,9 @@ public class CurrentWeatherDetailActivity extends FragmentActivity {
         Intent intent = getIntent();
         mListCurrent = (List<CurrentWeather>) intent.getSerializableExtra("current");
         int position = intent.getIntExtra("position", 0);
-        viewPager.setOffscreenPageLimit(10);
 
+
+        viewPager.setOffscreenPageLimit(10);
         viewPager.setAdapter(new ViewPagerAdatper(getSupportFragmentManager(),mListCurrent));
         viewPager.setCurrentItem(position);
     }

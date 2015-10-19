@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import wyz.android.com.weather_version_10.domain.CurrentWeather;
-import wyz.android.com.weather_version_10.domain.FiveDayWeather;
 import wyz.android.com.weather_version_10.fragment.WeatherByCityFragment;
 
 /**
@@ -17,21 +16,20 @@ import wyz.android.com.weather_version_10.fragment.WeatherByCityFragment;
 public class ViewPagerAdatper extends FragmentStatePagerAdapter {
 
     private List<CurrentWeather> mListCurrent = new ArrayList<>();
-    private List<FiveDayWeather> mListFiveDay = new ArrayList<>();
+    private FragmentManager fragmentManager;
 
     public ViewPagerAdatper(FragmentManager fm, List<CurrentWeather> mListCurrent)
     {
         super(fm);
+        this.fragmentManager = fm;
         this.mListCurrent = mListCurrent;
-        //this.mListFiveDay = mListFiveDay;
     }
 
 
     @Override
     public Fragment getItem(int position) {
         CurrentWeather currentWeather = mListCurrent.get(position);
-        //FiveDayWeather fiveDayWeather = mListFiveDay.get(position);
-        return new WeatherByCityFragment(currentWeather);
+        return new WeatherByCityFragment(currentWeather,position);
     }
 
     @Override

@@ -2,6 +2,7 @@ package wyz.android.com.weather_version_10.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Address;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -52,10 +53,13 @@ public class RecyclerViewMainAdapter extends RecyclerView.Adapter<RecyclerViewMa
 
     @Override
     public void onBindViewHolder(DataViewHolder holder, final int position) {
-        holder.mTextCity.setText(mList.get(position).getmName());
-        holder.mTextCountry.setText(mList.get(position).getmSys().getmCountry());
-        holder.mTextTemp.setText(mList.get(position).getmMain().getmTemp());
-        holder.mTextTime.setText(mList.get(position).getmDt());
+        List<Address> list = DataHandler.parseCity(mList.get(position).getmLatitude(),mList.get(position).getmLongitude(),mContext);
+        holder.mTextCity.setText(list.get(0).getAdminArea());
+        holder.mTextCountry.setText(list.get(0).getCountryName());
+        String temp = DataHandler.parseTemp(Double.valueOf(mList.get(position).getmCurrently().getmTemperature())) ;
+        holder.mTextTemp.setText(temp+"°");
+        String time = DataHandler.parseTime(mList.get(position).getmCurrently().getmTime(),mList.get(position).getmTimeZone());
+        holder.mTextTime.setText(time);
         int backColor = DataHandler.setCardViewBackground(mList, position);
         holder.mCardView.setCardBackgroundColor(holder.itemView.getContext().getResources().getColor(backColor));
         holder.mCardView.setOnClickListener(new View.OnClickListener() {

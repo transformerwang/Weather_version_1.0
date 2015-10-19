@@ -6,176 +6,98 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by wangyuzhe on 10/8/15.
+ * Created by wangyuzhe on 10/15/15.
  */
 public class CurrentWeather implements Serializable {
-    @SerializedName("coord")
-    private Coord mCoord;
-    @SerializedName("weather")
-    private List<Weather> mWeather;
-    @SerializedName("base")
-    private String mBase;
-    @SerializedName("main")
-    private Main mMain;
-    @SerializedName("wind")
-    private Wind mWind;
-    @SerializedName("dt")
-    private String mDt;
-    @SerializedName("sys")
-    private Sys mSys;
-    @SerializedName("id")
-    private String mId;
-    @SerializedName("name")
-    private String mName;
-    @SerializedName("cod")
-    private String mCod;
-    @SerializedName("dt_txt")
-    private String mDt_txt;
-    @SerializedName("clouds")
-    private Clouds mClouds;
-    @SerializedName("rain")
-    private Rain mRain;
-    @SerializedName("snow")
-    private Snow mSnow;
-    @SerializedName("visibility")
-    private String mVisibility;
+    @SerializedName("latitude")
+    private String mLatitude;
+    @SerializedName("longitude")
+    private String mLongitude;
+    @SerializedName("timezone")
+    private String mTimeZone;
+    @SerializedName("offset")
+    private String mOffSet;
+    @SerializedName("currently")
+    private Currently mCurrently;
+    @SerializedName("hourly")
+    private Hourly mHourly;
+    @SerializedName("daily")
+    private Daily mDaily;
+    @SerializedName("alerts")
+    private List<Alerts> mList;
 
-    public CurrentWeather(Coord mCoord, List<Weather> mWeather, String mBase, Main mMain, Wind mWind, String mDt, Sys mSys, String mId, String mName, String mCod, String mDt_txt, Clouds mClouds, Rain mRain, Snow mSnow, String mVisibility) {
-
-        this.mCoord = mCoord;
-        this.mWeather = mWeather;
-        this.mBase = mBase;
-        this.mMain = mMain;
-        this.mWind = mWind;
-        this.mDt = mDt;
-        this.mSys = mSys;
-        this.mId = mId;
-        this.mName = mName;
-        this.mCod = mCod;
-        this.mDt_txt = mDt_txt;
-        this.mClouds = mClouds;
-        this.mRain = mRain;
-        this.mSnow = mSnow;
-        this.mVisibility = mVisibility;
+    public CurrentWeather(String mLatitude, String mLongitude, String mTimeZone, String mOffSet, Currently mCurrently, Hourly mHourly, Daily mDaily, List<Alerts> mList) {
+        this.mLatitude = mLatitude;
+        this.mLongitude = mLongitude;
+        this.mTimeZone = mTimeZone;
+        this.mOffSet = mOffSet;
+        this.mCurrently = mCurrently;
+        this.mHourly = mHourly;
+        this.mDaily = mDaily;
+        this.mList = mList;
     }
 
-    public Coord getmCoord() {
-        return mCoord;
+    public String getmLatitude() {
+        return mLatitude;
     }
 
-    public void setmCoord(Coord mCoord) {
-        this.mCoord = mCoord;
+    public void setmLatitude(String mLatitude) {
+        this.mLatitude = mLatitude;
     }
 
-    public List<Weather> getmWeather() {
-        return mWeather;
+    public String getmLongitude() {
+        return mLongitude;
     }
 
-    public void setmWeather(List<Weather> mWeather) {
-        this.mWeather = mWeather;
+    public void setmLongitude(String mLongitude) {
+        this.mLongitude = mLongitude;
     }
 
-    public String getmBase() {
-        return mBase;
+    public String getmTimeZone() {
+        return mTimeZone;
     }
 
-    public void setmBase(String mBase) {
-        this.mBase = mBase;
+    public void setmTimeZone(String mTimeZone) {
+        this.mTimeZone = mTimeZone;
     }
 
-    public Main getmMain() {
-        return mMain;
+    public String getmOffSet() {
+        return mOffSet;
     }
 
-    public void setmMain(Main mMain) {
-        this.mMain = mMain;
+    public void setmOffSet(String mOffSet) {
+        this.mOffSet = mOffSet;
     }
 
-    public Wind getmWind() {
-        return mWind;
+    public Currently getmCurrently() {
+        return mCurrently;
     }
 
-    public void setmWind(Wind mWind) {
-        this.mWind = mWind;
+    public void setmCurrently(Currently mCurrently) {
+        this.mCurrently = mCurrently;
     }
 
-    public String getmDt() {
-        return mDt;
+    public Hourly getmHourly() {
+        return mHourly;
     }
 
-    public void setmDt(String mDt) {
-        this.mDt = mDt;
+    public void setmHourly(Hourly mHourly) {
+        this.mHourly = mHourly;
     }
 
-    public Sys getmSys() {
-        return mSys;
+    public Daily getmDaily() {
+        return mDaily;
     }
 
-    public void setmSys(Sys mSys) {
-        this.mSys = mSys;
+    public void setmDaily(Daily mDaily) {
+        this.mDaily = mDaily;
     }
 
-    public String getmId() {
-        return mId;
+    public List<Alerts> getmAlerts() {
+        return mList;
     }
 
-    public void setmId(String mId) {
-        this.mId = mId;
-    }
-
-    public String getmName() {
-        return mName;
-    }
-
-    public void setmName(String mName) {
-        this.mName = mName;
-    }
-
-    public String getmCod() {
-        return mCod;
-    }
-
-    public void setmCod(String mCod) {
-        this.mCod = mCod;
-    }
-
-    public String getmDt_txt() {
-        return mDt_txt;
-    }
-
-    public void setmDt_txt(String mDt_txt) {
-        this.mDt_txt = mDt_txt;
-    }
-
-    public Clouds getmClouds() {
-        return mClouds;
-    }
-
-    public void setmClouds(Clouds mClouds) {
-        this.mClouds = mClouds;
-    }
-
-    public Rain getmRain() {
-        return mRain;
-    }
-
-    public void setmRain(Rain mRain) {
-        this.mRain = mRain;
-    }
-
-    public Snow getmSnow() {
-        return mSnow;
-    }
-
-    public void setmSnow(Snow mSnow) {
-        this.mSnow = mSnow;
-    }
-
-    public String getmVisibility() {
-        return mVisibility;
-    }
-
-    public void setmVisibility(String mVisibility) {
-        this.mVisibility = mVisibility;
+    public void setmAlerts(List<Alerts> mAlerts) {
+        this.mList = mAlerts;
     }
 }

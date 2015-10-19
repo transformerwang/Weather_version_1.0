@@ -6,8 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
-    app:title="@string/hello_world"
-    app:logo="@mipmap/ic_launcher"
-    app:subtitle="hello"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    />
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="@dimen/tool_bar_text_size"
+        android:id="@+id/toolbar_title" />
+    </android.support.v7.widget.Toolbar>
