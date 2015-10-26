@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="5dp"
+        android:padding="@dimen/image_padding_current_week"
+        android:gravity="center"
+        android:id="@+id/relative_top">
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/image_current_weather"
+            android:src="@mipmap/sun121"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@id/image_current_weather"
+            android:layout_marginLeft="@dimen/linear_margin_left"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesday"
+            android:textSize="@dimen/right_now_txt_week"
+            android:id="@+id/text_week_name"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Partly cloud"
+            android:textSize="@dimen/weather_text_size_week"
+            android:id="@+id/text_description"
+            />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="24°/30°"
+            android:textSize="@dimen/weather_temp_textsize_week"
+            android:id="@+id/text_week_temp"
+            />
+
+    </RelativeLayout>
