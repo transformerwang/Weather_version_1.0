@@ -6,6 +6,7 @@ import android.location.Geocoder;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -71,8 +72,10 @@ public class DataHandler {
     public static List<Address> parseCity(String lat, String lon, Context context)
     {
         Geocoder geocoder = new Geocoder(context);
+        List<Address> list = new ArrayList<>();
         try {
-            return geocoder.getFromLocation(Double.valueOf(lat),Double.valueOf(lon),1);
+            list = geocoder.getFromLocation(Double.valueOf(lat),Double.valueOf(lon),2);
+            return list;
 
         } catch (IOException e) {
             e.printStackTrace();

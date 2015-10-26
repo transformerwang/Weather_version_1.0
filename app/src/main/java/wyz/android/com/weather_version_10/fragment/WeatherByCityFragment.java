@@ -1,6 +1,7 @@
 package wyz.android.com.weather_version_10.fragment;
 
-import android.location.Address;
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v17.leanback.widget.HorizontalGridView;
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -27,7 +30,7 @@ import wyz.android.com.weather_version_10.service.DataHandler;
 /**
  * Created by wangyuzhe on 10/10/15.
  */
-public class WeatherByCityFragment extends Fragment {
+public class WeatherByCityFragment extends Fragment{
     @Nullable
     @Bind(R.id.image_current_weather)
     ImageView imageView;
@@ -41,6 +44,11 @@ public class WeatherByCityFragment extends Fragment {
     Toolbar toolbarMain;
     @Bind(R.id.toolbar_title)
     TextView toolbarTitle;
+
+    private URL mUrl_1;
+    private URL mUrl_2;
+    private URL mUrl_3;
+    private List<URL> mList = new ArrayList<>();
 
 
     private CurrentWeather mCurrentWeather;
@@ -57,7 +65,7 @@ public class WeatherByCityFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.currentweather_fragment, container, false);
+        View view = inflater.inflate(R.layout.weather_detail_fragment, container, false);
         mHorizontalGridView = (HorizontalGridView) view.findViewById(R.id.horizontal_card);
         mHorizontalGridView.setWindowAlignment(HorizontalGridView.WINDOW_ALIGN_BOTH_EDGE);
         mHorizontalGridView.setAdapter(new HorizontalGridViewAdapter(mCurrentWeather));
@@ -69,15 +77,16 @@ public class WeatherByCityFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         ButterKnife.bind(this, view);
-        List<Address> list = DataHandler.parseCity(mCurrentWeather.getmLatitude(), mCurrentWeather.getmLongitude(), getActivity());
-        toolbarTitle.setText(list.get(0).getAdminArea());
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("session", Activity.MODE_PRIVATE);
+        String city = sharedPreferences.getString("cityname_"+mPosition,"");
+        toolbarTitle.setText(city);
         toolbarMain.setBackgroundColor(getResources().getColor(R.color.bluedark));
         bindData();//bind data for city
         mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerViewWeek.setHasFixedSize(true);
         recyclerViewWeek.setVerticalScrollBarEnabled(false);
         recyclerViewWeek.setLayoutManager(mLayoutManager);
-        recyclerViewWeek.setAdapter(new RecyclerViewWeekAdapter(mCurrentWeather));
+        recyclerViewWeek.setAdapter(new RecyclerViewWeekAdapter(mCurrentWeather, getActivity()));
         //Picasso.with(getActivity()).load("http://www.easyicon.net/download/png/1070346/128/").into(imageView);
 
     }
@@ -93,4 +102,7 @@ public class WeatherByCityFragment extends Fragment {
         String temp = DataHandler.parseTemp(Double.valueOf(mCurrentWeather.getmCurrently().getmTemperature()));
         textCurrentTempturature.setText(temp + "°");
     }
+
+
+
 }

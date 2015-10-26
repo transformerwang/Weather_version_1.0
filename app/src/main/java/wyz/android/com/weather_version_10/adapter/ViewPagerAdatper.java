@@ -16,12 +16,10 @@ import wyz.android.com.weather_version_10.fragment.WeatherByCityFragment;
 public class ViewPagerAdatper extends FragmentStatePagerAdapter {
 
     private List<CurrentWeather> mListCurrent = new ArrayList<>();
-    private FragmentManager fragmentManager;
 
     public ViewPagerAdatper(FragmentManager fm, List<CurrentWeather> mListCurrent)
     {
         super(fm);
-        this.fragmentManager = fm;
         this.mListCurrent = mListCurrent;
     }
 
@@ -36,5 +34,7 @@ public class ViewPagerAdatper extends FragmentStatePagerAdapter {
     public int getCount() {
         return mListCurrent.size();
     }
+
+
 
 }

@@ -1,6 +1,5 @@
 package wyz.android.com.weather_version_10.adapter;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,14 +27,12 @@ public class HorizontalGridViewAdapter extends RecyclerView.Adapter<HorizontalGr
     {
         public TextView textView_hour;
         public TextView textView_temp;
-        public CardView cardView;
         public ImageView imageView;
 
         public Viewholder(View v)
         {
             super(v);
             textView_hour = (TextView) v.findViewById(R.id.hour_text_view);
-            cardView = (CardView) v.findViewById(R.id.twentyfour_card_view);
             textView_temp = (TextView) v.findViewById(R.id.temp_text_view);
             imageView = (ImageView)v.findViewById(R.id.hour_image_view);
         }
@@ -43,7 +40,7 @@ public class HorizontalGridViewAdapter extends RecyclerView.Adapter<HorizontalGr
 
     @Override
     public Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_horizontal,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.weather_detail_horizontal_info,parent,false);
         return new Viewholder(v);
     }
 
@@ -51,7 +48,15 @@ public class HorizontalGridViewAdapter extends RecyclerView.Adapter<HorizontalGr
     public void onBindViewHolder(Viewholder holder, final int position) {
         String time = DataHandler.parseTime(mCurrentWeather.getmHourly().getmList().get(position).getmTime(),mCurrentWeather.getmTimeZone());
         String hour = time.split(":")[0];
-        holder.textView_hour.setText(hour);
+        if(position == 0)
+        {
+            holder.textView_hour.setText("Now");
+        }
+        else
+        {
+            holder.textView_hour.setText(hour);
+        }
+
         double temp = Double.valueOf(mCurrentWeather.getmHourly().getmList().get(position).getmTemprature());
         int temp_1 = Integer.parseInt(new java.text.DecimalFormat("0").format(temp));
         String temp_2 = String.valueOf(temp_1+"°");

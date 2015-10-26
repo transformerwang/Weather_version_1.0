@@ -7,7 +7,7 @@
     <dimen name="country_text_size">15dp</dimen>
     <dimen name="time_text_size">15dp</dimen>
     <dimen name="temp_text_size">30dp</dimen>
-    <dimen name="weather_text_size">20sp</dimen>
+    <dimen name="weather_text_size">18sp</dimen>
     <dimen name="weather_temp_textsize">80sp</dimen>
     <dimen name="hour_textsize">13sp</dimen>
     <dimen name="temp_textsize">18sp</dimen>
@@ -17,6 +17,11 @@
     <dimen name="weather_text_size_week">10sp</dimen>
     <dimen name="weather_temp_textsize_week">20sp</dimen>
     <dimen name="linear_margin_left">8dp</dimen>
-
     <dimen name="tool_bar_text_size">30sp</dimen>
+    <dimen name="weather_detail_size">12sp</dimen>
+    <dimen name="weather_detail_margin">5dp</dimen>
+    <dimen name="weather_des_margin">20dp</dimen>
+    <dimen name="weather_detail_textsize">15dp</dimen>
+    <dimen name="weather_textsize">35dp</dimen>
+    <dimen name="weather_hight">130dp</dimen>
 </resources>

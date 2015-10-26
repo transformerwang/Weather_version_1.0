@@ -1,5 +1,6 @@
 package wyz.android.com.weather_version_10.service;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -19,12 +20,14 @@ public class GetWeatherDataAsyncTask extends AsyncTask<List<URL>, Integer, Strin
 
     private Context mContext;
     private LoadWeatherDataCompletionListener mLoadWeatherData;
+    private ProgressDialog mProgressDialog;
 
     public GetWeatherDataAsyncTask(Context context, LoadWeatherDataCompletionListener loadWeatherData)
     {
         this.mContext = context;
         this.mLoadWeatherData = loadWeatherData;
     }
+
 
     @Override
     protected String[] doInBackground(List<URL>... params) {
@@ -55,6 +58,7 @@ public class GetWeatherDataAsyncTask extends AsyncTask<List<URL>, Integer, Strin
         {
             mLoadWeatherData.getWeatherDataFail();
         }
+        mProgressDialog.dismiss();
     }
 
     @Override
@@ -64,7 +68,13 @@ public class GetWeatherDataAsyncTask extends AsyncTask<List<URL>, Integer, Strin
 
     @Override
     protected void onPreExecute() {
+        mProgressDialog = new ProgressDialog(mContext,android.R.style.Theme_DeviceDefault_Dialog);
+        mProgressDialog.setMessage("Loading...");
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.show();
         super.onPreExecute();
+
     }
 }
 
